@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'uprofile',
     'dealers',
     'dealership',
-    'cars'
+    'cars',
+    'customauth',
+    'crispy_forms', # легкая стилизация форм в Bootstrap4
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 AUTH_USER_MODEL = 'uprofile.User'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
