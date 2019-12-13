@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-10 p-3" style="background:#fff">
+        <div class="dealer-detail_name">
+          <h1 class="mb-5">Дилер - <a href="">{{dealer.name}}</a></h1>
+        </div>
+
+        <h5>Дилерные центры:</h5>
+        <p>
+          {% if dealer.dealerships.count > 0 %}
+            <ul>
+            {% for dealership in dealer.dealerships.all %}
+            <li><a href="{{dealership.get_absolute_url}}" class="pr-3">{{dealership.name}}</a></li>
+            {% endfor %}
+            </ul>
+          {% else %}
+            <p>Дилерные центры отсутствуют.</p>
+          {% endif %}
+        </p>
+        {% if user == dealer.user %}
+        <a href="{% url 'dealership:dealership_add' %}" class="btn btn-primary">Добавить</a>
+        {% endif %}
+    </div>
+  </div>
+
+{% endblock %}
