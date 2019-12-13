@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <h1 class="text-center">Изменить дилерный центр</h1>
+    <form method="POST" class="form-group">
+      {% csrf_token %}
+      {{form|crispy}}
+      <button type="submit" class="btn btn-success form-control">Применить</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import DealerShip, Service
 
-# Register your models here.
+admin.site.register(DealerShip)
+admin.site.register(Service)

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-10 p-3" style="background:#fff">
+        <div class="dealer-detail_name">
+          <h1 class="mb-5">Дилерный центр - <a href="">{{dealership.name}}</a></h1>
+        </div>
+        <div class="services">
+          <h3>Оказываемые услуги:</h3>
+          {% if dealership.services.count > 0 %}
+            {% for service in dealership.services.all %}
+            <p>- {{service.name}}</p>
+            {% endfor %}
+          {% else%}
+           <p>Дилерный центр не оказывает никаких услуг.</p>
+          {% endif %}
+          {% if user == dealership.dealer.user %}
+          <a href="{% url 'dealership:dealership_edit' slug=dealership.name  %}" class="btn btn-primary">Изменить</a>
+          {% endif %}
+        </div>
+        <div class="cars mt-3">
+          <h3>Автомобили:</h3>
+          {% if dealership.cars.count > 0 %}
+          {% for car in dealership.cars.all %}
+          <p>- <a href="{% url 'cars:car_detail' slug=car.vin %}">{{car.brand}} {{car.model}} {{car.color}}</a></p>
+          {% endfor %}
+          {% else %}
+          У этого дилерного центра нет автомобилей в продаже.
+          {% endif %}
+          {% if user == dealership.dealer.user %}
+          <a href="{% url 'cars:car_add' %}" class="btn btn-primary">Добавить</a>
+          {% endif %}
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
