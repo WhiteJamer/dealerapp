@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'dealerapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '{YOUR DATABASE NAME}',
+        'USER': '{YOUR DATABASE USERNAME}',
+        'PASSWORD': '{YOUR DATABASE PASSWORD}',
+        'HOST': '{YOUR HOST NAME}', #if is local use localhost
+        'PORT': '{YOUR DATABASE PORT}', # default postgres-port 5432
     }
 }
 
