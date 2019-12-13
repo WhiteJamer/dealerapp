@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="col-md">
+
+  {% if cars %}
+    <h3>Автомобили:</h3>
+    {% for car in cars %}
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md">
+          <div class="card-body">
+            <h1 class="card-title"><a href="{{car.get_absolute_url}}">{{car.brand}} | {{car.model}}</a></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <h3 class="text-center mt-5">Автомобилей не найдено.</h3>
+  {% endif %}
+</div>
+
+{% endblock %}

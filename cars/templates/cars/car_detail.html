@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-10 p-3" style="background:#fff">
+        <div class="dealer-detail_name">
+          <h1 class="mb-5">Автомобиль - <a href="">{{car.brand}} | {{car.model}}</a></h1>
+        </div>
+
+        <h5>Информация:</h5>
+            <ul>
+            <li>Марка: {{car.brand}}</li>
+            <li>Модель: {{car.model}}</li>
+            <li>Цвет: {{car.color}}</li>
+            <li>Дилер: {{car.dealer}}</li>
+            <li>Дилерский центр: <a href="{{car.dealership.get_absolute_url}}">{{car.dealership}}</a></li>
+            </ul>
+        {% if user == car.dealer.user %}
+        <a href="{% url 'cars:car_edit' slug=car.vin %}" class="btn btn-primary">Изменить</a>
+        {% endif %}
+    </div>
+  </div>
+
+{% endblock %}
