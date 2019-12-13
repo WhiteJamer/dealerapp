@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, reverse
 from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, \
     PasswordChangeView, PasswordChangeDoneView, PasswordResetDoneView
 from django.views import View
@@ -45,7 +45,9 @@ class Register(View):
                 user_session = authenticate(username=username,
                                             password=password)
                 login(request, user_session)
-                return redirect(user)
+                return redirect('/')
+            else:
+                return redirect(reverse('registration'))
         else:
             return HttpResponse('You already registered')
 
