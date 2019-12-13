@@ -42,7 +42,7 @@ DATABASES = {
 
 
     python manage.py runserver
-####Linux:
+### Linux:
 	
     git clone https://github.com/WhiteJamer/dealerapp
 В репозитории:
@@ -63,19 +63,19 @@ DATABASES = {
 
     manage.py runserver
     
-###API документация:
+### API документация:
 
-####Дилеры:
+#### Дилеры:
 Получить всех дилеров - `GET /api/dealers/`
 
 Получить информацию о конкретном дилере - `GET /api/dealers/{ID}`
 
-####Дилерcкие центры:
+#### Дилерcкие центры:
 Получить все дилерские центры - `GET /api/dealerships/`
 
 Получить информацию о конкретном дилерском центре - `GET /api/dealerships/{ID}`
 
-####Автомобили:
+#### Автомобили:
 Получить все автомобили - `GET /api/cars/`
 
 Получить информацию о конкретном автомобиле - `GET /api/cars/{ID}`
