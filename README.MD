@@ -81,4 +81,5 @@ DATABASES = {
 Получить информацию о конкретном автомобиле - `GET /api/cars/{ID}`
 
 
+![Users list photo](https://i.imgur.com/VdDe9QW.png?1)
 
